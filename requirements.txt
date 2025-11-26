@@ -1,3 +1,12 @@
+pytest>=7.0.0
+coverage>=7.0.0
+
+# Optional but recommended for Python formatting
+black>=24.0.0
+isort>=5.12.0
+flake8>=6.0.0
+
+# Your project dependencies (example)
 langgraph>=0.1.0
 langchain>=0.3.0
 langchain-ollama>=0.1.0
