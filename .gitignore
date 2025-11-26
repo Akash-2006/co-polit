@@ -1,6 +1,52 @@
+# ---------------------------
+# PYTHON VIRTUAL ENVIRONMENTS
+# ---------------------------
+venv/
 .venv/
-.coverage
-__pycache__/
+ENV/
+env/
+
+# ---------------------------
+# PYTHON BYTECODE + CACHE
+# ---------------------------
+**/__pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# ---------------------------
+# COVERAGE FILES
+# ---------------------------
+.coverage
+coverage.xml
+htmlcov/
+
+# ---------------------------
+# LOGS & OUTPUT
+# ---------------------------
+*.log
+*.out
+*.err
+
+# ---------------------------
+# TESTING / PYTEST
+# ---------------------------
+.pytest_cache/
+
+# ---------------------------
+# EDITOR SETTINGS
+# ---------------------------
+.vscode/
+.idea/
+
+# ---------------------------
+# OS FILES
+# ---------------------------
+.DS_Store
+Thumbs.db
+
+# ---------------------------
+# LANGCHAIN / LANGGRAPH ARTIFACTS
+# ---------------------------
+langchain.db
+langgraph.db
