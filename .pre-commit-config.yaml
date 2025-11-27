@@ -1,0 +1,7 @@
+repos:
+  - repo: local
+    hooks:
+      - id: pytest-coverage
+        name: Run tests with coverage before commit
+        entry: bash -c "coverage run -m pytest && coverage report --fail-under=80"
+        language: system
