@@ -1,5 +1,5 @@
-from src.agent import agent
+from src.agent import Agent
 
 def test_agent_runs():
-    result = agent.invoke({"input": "hello"})
-    assert result["output"] is not None
+    agent = Agent()
+    assert agent.run("hii") is not None
