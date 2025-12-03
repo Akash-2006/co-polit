@@ -1,17 +1,13 @@
 from langchain_ollama import OllamaLLM
-from langgraph.graph import StateGraph, END
 
-llm = OllamaLLM(model="llama3.2")
+class Agent:
+    llm = OllamaLLM(model="llama3.2")
 
-def agent_step(state):
-    response = llm.invoke(state["input"])
-    return {"output": response}
+    def run(self,input):
+        return self.llm.invoke(input)
+        
 
-graph = StateGraph(dict)
-graph.add_node("agent", agent_step)
-graph.set_entry_point("agent")
-graph.add_edge("agent", END)
 
-agent = graph.compile()
-
-print(agent.invoke({"input": "Hello LangGraph"}))
+if __name__ == "__main__":
+    agent = Agent()
+    print(agent.run("Hello LangGraph"))
