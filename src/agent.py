@@ -14,7 +14,7 @@ class Agent:
     def __init__(self):
        llm = ChatOllama(model="llama3", base_url="http://localhost:11434")
        prompt = hub.pull("hwchase17/react")
-       agent = create_react_agent(llm, [search],prompt=prompt)
+       agent = create_react_agent(llm=llm, tools=[search],prompt=prompt)
        self.executor = AgentExecutor(agent=agent, tools=[search],verbose=True,handle_parsing_errors=True)
 
     def run(self, text):
