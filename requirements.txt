@@ -1,14 +1,20 @@
-pytest>=7.0.0
-coverage>=7.0.0
+# Testing & Coverage
+pytest==8.3.2
+coverage==7.6.5
 
-# Optional but recommended for Python formatting
-black>=24.0.0
-isort>=5.12.0
-flake8>=6.0.0
+# Code Formatting & Linting
+black==24.10.0
+isort==5.13.2
+flake8==7.1.1
 
-# Your project dependencies (example)
-langgraph>=0.1.0
-langchain>=0.3.0
-langchain-ollama>=0.1.0
-python-dotenv>=1.0.0
-requests>=2.31.0
+# LangChain Ecosystem
+langchain==0.3.13
+langchain-core==0.3.35
+langchain-community==0.3.13
+langchain-ollama==0.2.1
+langgraph==0.2.36
+langchainhub==0.1.18
+
+# Environment & Utils
+python-dotenv==1.0.1
+requests==2.32.3
