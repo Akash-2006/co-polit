@@ -28,7 +28,8 @@ class Agent:
 
 if __name__ == "__main__":
     agent = Agent()
-    # print("hello",agent.fetchMemory())
-    print(agent.run("My name is akash?"))
-    print(agent.fetchMemory())
-    print(agent.run("what is my name?"))
+    while True:
+        prompt = input("Enter the query ")
+        if prompt == "exit":
+            break
+        print(agent.run(prompt))
