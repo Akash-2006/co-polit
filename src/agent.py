@@ -1,6 +1,6 @@
 import math
 from langchain_community.chat_models import ChatOllama
-from langchain.agents import Tool, create_react_agent, AgentExecutor
+from langchain.agents import create_react_agent, AgentExecutor
 from langchain import hub
 from langchain_core.tools import tool
 from langchain.memory import ConversationBufferMemory
