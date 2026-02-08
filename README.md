@@ -16,7 +16,11 @@ Co-Polit is an experimental AI coding assistant that aims to replicate core feat
 
 ## Architecture
 
-The project uses a simple yet extensible agent architecture:
+The project uses a simple yet extensible agent architecture. For a full description of how the agent system works—including architecture overview, class diagrams, request flow, and setup & usage—see:
+
+**[Agent System Architecture](docs/architecture.md)** — architecture overview, Mermaid diagrams (system, flow, class diagram), and setup/usage instructions.
+
+High-level flow:
 
 ```
 ┌─────────────┐
@@ -44,12 +48,14 @@ The project uses a simple yet extensible agent architecture:
 ## Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/Akash-2006/co-polit.git
    cd co-polit
    ```
 
 2. **Create a virtual environment**:
+
    ```bash
    python -m venv env
    source env/bin/activate  # On macOS/Linux
@@ -58,11 +64,13 @@ The project uses a simple yet extensible agent architecture:
    ```
 
 3. **Install dependencies**:
+
    ```bash
    pip install -r requirements.txt
    ```
 
 4. **Set up pre-commit hooks** (optional):
+
    ```bash
    pre-commit install
    ```
@@ -99,11 +107,13 @@ print(result)
 ```
 co-polit/
 ├── README.md              # This file
+├── docs/
+│   └── architecture.md    # Agent system architecture & usage
 ├── requirements.txt       # Python dependencies
 ├── src/
 │   └── agent.py          # Main agent implementation
 ├── tests/
-│   └── agent.py          # Test suite
+│   └── test_agent.py     # Test suite
 └── env/                  # Virtual environment (gitignored)
 ```
 
@@ -125,16 +135,19 @@ coverage report
 ### Code Formatting
 
 Format code with Black:
+
 ```bash
 black src/ tests/
 ```
 
 Sort imports with isort:
+
 ```bash
 isort src/ tests/
 ```
 
 Lint with flake8:
+
 ```bash
 flake8 src/ tests/
 ```

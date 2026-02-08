@@ -6,6 +6,13 @@ from langchain_core.tools import tool
 from langchain.memory import ConversationBufferMemory
 
 
+def human_permission(tool) -> str:
+    """
+    Ask the user for permission to use the tool.
+    Example: "calculator"
+    """
+    return input(f"\n Do you want to use the {tool.name} tool? (yes/no): ") == "yes"
+
 @tool
 def calculator(expression: str) -> str:
     """
@@ -13,6 +20,8 @@ def calculator(expression: str) -> str:
     Example: "2 + 3 * 4"
     """
     try:
+        if not human_permission(calculator):
+            return "Tool use denied by user."
         result = eval(expression, {"__builtins__": {}}, math.__dict__)
         return str(result)
     except Exception as e:
@@ -25,6 +34,8 @@ def search_web(url: str) -> str:
     Search the web for information.
     Example: "https://www.google.com"
     """
+    if not human_permission(search_web):
+            return "Tool use denied by user."
     return f"Results: {url}"
 
 
