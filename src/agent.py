@@ -2,8 +2,11 @@ import math
 from langchain_community.chat_models import ChatOllama
 from langchain.agents import Tool, create_react_agent, AgentExecutor
 from langchain import hub
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.tools import tool
 from langchain.memory import ConversationBufferMemory
+from langchain.tools import HumanInputRun
+import os
 
 
 def human_permission(tool) -> str:
@@ -38,6 +41,13 @@ def search_web(url: str) -> str:
             return "Tool use denied by user."
     return f"Results: {url}"
 
+def clear_terminal():
+    # 'nt' is the name for Windows
+    if os.name == 'nt':
+        _ = os.system('cls')
+    # 'posix' is the name for Linux, macOS, etc.
+    else:
+        _ = os.system('clear')
 
 class Agent:
     def __init__(self):
@@ -48,7 +58,8 @@ class Agent:
        self.executor = AgentExecutor(agent=agent, tools=[calculator,search_web],handle_parsing_errors=True,memory=self.memory,verbose=True)
 
     def run(self, text):
-        return self.executor.invoke({"input": text})["output"]
+        result = self.executor.invoke({"input": text})
+        return result["output"]
     
     def fetchMemory(self):
         return self.memory.chat_memory.messages
